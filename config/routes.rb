@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :user_lists,only: [:index]
   root to: 'homes#top'
   devise_for :admins, skip: :all
     devise_scope :admin do
