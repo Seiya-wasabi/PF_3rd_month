@@ -1,0 +1,2 @@
+module Concerns::ScrapesHelper
+end

@@ -10,3 +10,9 @@
         <%= link_to "ログイン", new_user_session_path %>
       </li>
     <% end %>
+
+    <% if admin_signed_in? %>
+      <li>
+        <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
+      </li>
+    <% end %>
