@@ -1,5 +1,5 @@
 class RealPropertiesController < ApplicationController
-  def new
-    @property = Property.new
+  def index
+
   end
 end
