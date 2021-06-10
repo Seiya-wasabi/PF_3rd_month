@@ -65,3 +65,8 @@ gem 'nokogiri'
 gem 'activerecord-import'
 
 gem 'devise'
+
+gem 'dotenv-rails'
+group :production do
+  gem 'mysql2'
+end
