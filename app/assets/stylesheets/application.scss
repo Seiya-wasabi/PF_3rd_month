@@ -13,3 +13,10 @@
  *= require_tree .
  *= require_self
  */
+@import "bootstrap";
+
+.jumbotron {
+  background-image: url("top.jpeg");
+  background-size: cover;
+  background-position: center 70%;
+}
