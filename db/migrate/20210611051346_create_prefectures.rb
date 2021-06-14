@@ -1,7 +1,7 @@
 class CreatePrefectures < ActiveRecord::Migration[5.2]
   def change
     create_table :prefectures do |t|
-      t.name :string
+      t.string :name
 
       t.timestamps
     end
