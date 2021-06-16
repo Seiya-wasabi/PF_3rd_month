@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_11_051859) do
+ActiveRecord::Schema.define(version: 2021_06_16_071444) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 2021_06_11_051859) do
   end
 
   create_table "real_properties", force: :cascade do |t|
-    t.integer "property_code"
+    t.integer "property_id"
     t.integer "rent"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
