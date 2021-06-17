@@ -1,2 +1,3 @@
-<h1>Areas#new</h1>
-<p>Find me in app/views/areas/new.html.erb</p>
+<%= form_with model:@prefecture, url:areas_path, local:true do |area| %>
+  <%= area.select :name, Prefecture.prefectures.keys, {} %>
+<% end %>
