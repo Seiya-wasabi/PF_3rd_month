@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'areas/new'
   get 'real_properties/new'
   resources :user_lists,only: [:index]
   resources :real_properties,only: [:new]
