@@ -1,3 +1,13 @@
-<%= form_with model:@prefecture, url:areas_path, local:true do |area| %>
-  <%= area.select :name, Prefecture.prefectures.keys, {} %>
+<%= form_for(@profile) do |f| %>
+    <div class="field"><!-- 都道府県 -->
+      <%= f.label :prefecture_id %><br>
+      <%= f.collection_select :prefecture_id, Prefecture.all, :id, :name, :include_blank => true %>
+      <!-- デフォルトでid: "user_prefecture_id" がついてる -->
+    </div>
+    
+    <div class="field"><!-- 市町村 -->
+      <%= f.label :city_id %><br>
+      <%= f.collection_select :city_id, City.where(prefecture_id: prefecture_id), :id, :city_name %>
+    　　　　　　<!-- ↑ここが違う？ JSで都道府県の値を取得しないといけない？ -->
+    </div>
 <% end %>
