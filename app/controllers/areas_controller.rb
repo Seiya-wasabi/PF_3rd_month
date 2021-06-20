@@ -1,9 +1,11 @@
 class AreasController < ApplicationController
   def new
-    @area = Area.new  
+    @area = Area.new
+    @cities = City.where(prefecture_id:0)
   end
-  
+
   def get_cities
-    render partial: 'select_city', locals: {prefecture_id: params[:prefecture_id]}
+    @cities = City.where(prefecture_id: params[:prefecture_id])
+#    render partial: 'select_city', locals: {prefecture_id: params[:prefecture_id]}
   end
 end

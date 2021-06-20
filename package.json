@@ -1,5 +1,8 @@
 {
   "name": "PF",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "coffee-script": "^1.12.7",
+    "coffeescript": "^2.5.1"
+  }
 }
