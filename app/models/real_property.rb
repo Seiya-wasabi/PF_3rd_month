@@ -6,5 +6,5 @@
       # NokogiriでURLの情報を取得する
       doc = Nokogiri::HTML(open(url),nil,"utf-8")
       doc.css('.cassetteitem_price--rent').each do |link|
-        puts link.content.to_html
+        puts link.content
       end
