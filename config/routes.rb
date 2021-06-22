@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
-  resources :areas,only: [:new, :create]
-  get 'real_properties/new'
   resources :user_lists,only: [:index]
-  resources :real_properties,only: [:new]
   root to: 'homes#top'
     # devise_scope :admin do
     #   get 'admins/sign_in' => 'admins/sessions#new'
@@ -27,4 +24,6 @@ Rails.application.routes.draw do
         get 'get_cities' # /areas/get_cities
       end
     end
+
+    resources :real_properties, only: [:new, :create]
 end
