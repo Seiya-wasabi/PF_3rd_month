@@ -25,5 +25,6 @@ Rails.application.routes.draw do
       end
     end
 
-    resources :real_properties, only: [:new, :create]
+    resources :real_properties, only: [:new]
+    get "/real_properties" => "real_properties#create"
 end
