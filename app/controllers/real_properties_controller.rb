@@ -2,6 +2,10 @@ class RealPropertiesController < ApplicationController
   require 'open-uri' # URLアクセス
   require 'kconv'    # 文字コード変換
   require 'nokogiri' # スクレイピング
+  
+  def create
+    
+  end
 
   def index
     # スクレイピング先のURL

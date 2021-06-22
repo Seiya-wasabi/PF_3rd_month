@@ -22,10 +22,9 @@ Rails.application.routes.draw do
       registrations: 'admins/registrations'
     }
 
-    resources :areas, only: :new do
+    resources :areas, only: [:new, :create] do
       collection do
         get 'get_cities' # /areas/get_cities
       end
     end
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
