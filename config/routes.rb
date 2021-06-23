@@ -27,4 +27,6 @@ Rails.application.routes.draw do
 
     resources :real_properties, only: [:new]
     get "/real_properties" => "real_properties#create"
+    
+    resources :customers, only: [:index, :show]
 end
