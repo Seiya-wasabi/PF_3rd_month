@@ -11,7 +11,9 @@ class RealPropertiesController < ApplicationController
     doc.css('.cassetteitem_price--rent').each do |rent|
       @rents << rent.text
     end
-    @rents = @rents.map!{|s|s.sub('万円','')}
+    @rents = @rents.map!{|s|s.sub('万円','')} # 配列内を数字だけに
+    @rents = @rents.map!(&:to_f) # 配列の要素を整数型に変換
+    @rent = @rents.sum.fdiv(@rents.length)
   end
 
   require 'open-uri' # URLアクセス
