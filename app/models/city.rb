@@ -1,3 +1,3 @@
 class City < ApplicationRecord
-  belongs_to :precedence
+  belongs_to :prefecture
 end
