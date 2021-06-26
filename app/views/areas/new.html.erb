@@ -14,5 +14,12 @@
 <% end %>
   <%= link_to "実行", new_real_property_path %>
 
+  <h1>ここにURLを入力してください</h1>
+<!-- form_with部分 -->
+<%= form_with model: @url, url:real_properties_path, local:true do |f| %>
+  <%= f.text_field :url %>
+  <%= f.submit '実行' %>
+<% end %>
+
 
 </script>

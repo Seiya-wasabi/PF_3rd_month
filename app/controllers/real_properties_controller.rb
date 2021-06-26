@@ -1,44 +1,60 @@
 class RealPropertiesController < ApplicationController
-  def new
     require 'nokogiri'
     require 'open-uri'
-    sleep 1　#先方への配慮
-    # binding.pry
-    @rents = []
 
-    url = "https://suumo.jp/jj/chintai/ichiran/FR301FC005/?shkr1=03&cb=0.0&shkr3=03&shkr2=03&mt=9999999&sc=28228&ar=060&bs=040&shkr4=03&ct=9999999&srch_navi=1&cn=9999999&mb=0&ta=28&fw2=&et=9999999"
+  def new
+    @url = RealProperty.new
+  end
+
+  def create
+    # binding.pry
+    # sleep 1　#先方への配慮
+    # "https://suumo.jp/jj/chintai/ichiran/FR301FC005/?shkr1=03&cb=0.0&shkr3=03&shkr2=03&mt=9999999&sc=28228&ar=060&bs=040&shkr4=03&ct=9999999&srch_navi=1&cn=9999999&mb=0&ta=28&fw2=&et=9999999"
+    @url = RealProperty.new(url_params).to_s
+    @url.save
     # NokogiriでURLの情報を取得する
-    doc = Nokogiri::HTML(open(url),nil,"utf-8")
-    begin
+    doc = Nokogiri::HTML(open(@url),nil,"utf-8")
+      @rents = []
       doc.css('.cassetteitem_price--rent').each do |rent|
         @rents << rent.text
       end
-        next_link = doc.css('.pagination-parts')
-        unless next_link.empty?
-          url + "page"
-        end
-    end until next_link.empty?
-  end
-      @rents << rent.text
-    
+      # @rents << rent.text
+
     @rents = @rents.map!{|s|s.sub('万円','')} # 配列内を数字だけに
     @rents = @rents.map!(&:to_f) # 配列の要素を整数型に変換
     @rent = @rents.sum.fdiv(@rents.length)
+    @rent.save(rent_params)
   end
 
-  require 'open-uri' # URLアクセス
-  require 'kconv'    # 文字コード変換
-  require 'nokogiri' # スクレイピング
-
-  def create
-      # 対象のURL
-      url = "https://suumo.jp/jj/chintai/ichiran/FR301FC001/?ar=060&bs=040&ta=28&sc=28222&cb=0.0&ct=9999999&et=9999999&cn=9999999&mb=0&mt=9999999&shkr1=03&shkr2=03&shkr3=03&shkr4=03&fw2=&srch_navi=1"
-      # NokogiriでURLの情報を取得する
-      doc = Nokogiri::HTML(open(url),nil,"utf-8")
-      doc.css('.cassetteitem_price--rent').each do |link|
-        puts link.content
-      end
+  def index
+    @rents = RealProperty.all
   end
+
+  # require 'open-uri' # URLアクセス
+  # require 'kconv'    # 文字コード変換
+  # require 'nokogiri' # スクレイピング
+
+  # def create
+  #     # 対象のURL
+  #     url = "https://suumo.jp/jj/chintai/ichiran/FR301FC001/?ar=060&bs=040&ta=28&sc=28222&cb=0.0&ct=9999999&et=9999999&cn=9999999&mb=0&mt=9999999&shkr1=03&shkr2=03&shkr3=03&shkr4=03&fw2=&srch_navi=1"
+  #     # NokogiriでURLの情報を取得する
+  #     doc = Nokogiri::HTML(open(url),nil,"utf-8")
+  #     doc.css('.cassetteitem_price--rent').each do |link|
+  #       puts link.content
+  #     end
+  # end
+
+    private
+  # ストロングパラメータ
+  def url_params
+    params.require(:real_property).permit(:url)
+  end
+
+  def rent_params
+    params.require(:real_properties).permit(:rent)
+  end
+end #class全体
+
 
   # def index
   #   # スクレイピング先のURL
@@ -91,5 +107,3 @@ class RealPropertiesController < ApplicationController
   #   end
   #   latest_id = row["feed_id"].to_i
   #   return latest_id
-  # end
-end
