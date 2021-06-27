@@ -7,7 +7,7 @@ class RealPropertiesController < ApplicationController
   end
 
   def create
-    binding.pry
+    # binding.pry
     # sleep 1　#先方への配慮
     # "https://suumo.jp/jj/chintai/ichiran/FR301FC005/?shkr1=03&cb=0.0&shkr3=03&shkr2=03&mt=9999999&sc=28228&ar=060&bs=040&shkr4=03&ct=9999999&srch_navi=1&cn=9999999&mb=0&ta=28&fw2=&et=9999999"
     # url = RealProperty.new(url_params)
