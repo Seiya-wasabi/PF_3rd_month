@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_26_055913) do
+ActiveRecord::Schema.define(version: 2021_06_27_110032) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -55,7 +55,7 @@ ActiveRecord::Schema.define(version: 2021_06_26_055913) do
 
   create_table "real_properties", force: :cascade do |t|
     t.text "url"
-    t.integer "rent"
+    t.float "rent"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
