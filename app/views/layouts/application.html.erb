@@ -10,11 +10,15 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body  class="d-flex flex-column h-100" >
     <%= render 'layouts/header' %>
-    <%= yield %>
-  <footer>
-    <%= render 'layouts/footer' %>
+    <main role="main" class="flex-shrink-0">
+        <%= yield %>
+    </main>
+  <footer class="footer mt-auto py-3">
+    <div class="container">
+      <span class="text-muted">Copyright © WASABI.</span>
+    </div>
   </footer>
   </body>
 </html>
