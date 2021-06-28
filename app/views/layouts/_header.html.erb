@@ -1,7 +1,7 @@
-
-
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">住まトク</a>
+    <div class = "nav-brand">
+      <%= link_to "住まトク", root_path, class: "text-dark" %>
+    </div>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -14,7 +14,7 @@
         </div>
       </li>
       <li class="nav-link">
-        <%= link_to "How to Use", root_path, class: "text-muted" %>
+        <%= link_to "How to Use", homes_path, class: "text-muted" %>
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
