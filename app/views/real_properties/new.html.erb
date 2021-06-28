@@ -1,6 +1,19 @@
-  <h1>ここにURLを入力してください</h1>
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4 text-white ">理想ではなくベストなお部屋さがしを</h1>
+      <p class="lead text-white">"住まトク"は出来るだけ"お得に"物件を探したい方</br>
+      どれだけ家賃が下がっているかをリアルタイムでお調べします</p>
+    </div><!-- /.container -->
+  </div><!-- /.jumbotron -->
+  <div class="container">
+    <div class="row">
+      <div>
+      <h2 class="cover-heading">ここにURLを入力してください</h2>
 <!-- form_with部分 -->
-<%= form_with model: @url, url:real_properties_path, local:true do |f| %>
-  <%= f.text_field :url %>
-  <%= f.submit '実行' %>
-<% end %>
+        <%= form_with model: @url, url:real_properties_path, local:true do |f| %>
+          <%= f.text_field :url %>
+          <%= f.submit '実行' %>
+        <% end %>
+      </div>
+    </div>
+  </div>

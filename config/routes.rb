@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :user_lists,only: [:index]
   root to: 'homes#top'
-  resources :user_lists,only: [:index]
+  resources :homes,only: [:top, :index]
     # devise_scope :admin do
     #   get 'admins/sign_in' => 'admins/sessions#new'
     #   post 'admins/sign_in' => 'admins/sessions#create'

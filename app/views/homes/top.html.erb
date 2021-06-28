@@ -10,7 +10,7 @@
       </div><!-- /.container -->
     </div><!-- /.jumbotron -->
     <div class="container">
-          <div class="row">
+      <div class="row">
       <div class="col-lg-4">
         <div class="rounded-circle">
           <%= image_tag "map.jpg", :size =>'140x140' %>
@@ -20,7 +20,7 @@
         <p>あなたが検討したいエリアを決めましょう。</br>
         ポータルサイトのエリア選択時のURLをご用意ください。</p>
         <!-- <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p> -->
-        <p><a class="btn btn-secondary" href="#" role="button">使い方紹介 &raquo;</a></p>
+        <%= link_to "使い方を見る", homes_path, class: 'btn btn-secondary' %>
       </div><!-- /.col-lg-4 -->
       <div class="col-lg-4">
         <div class="rounded-circle">
@@ -29,7 +29,7 @@
         <h2>STEP.2 実行</h2>
         <p>現在入居可能な物件の家賃を自動で収集。<br>
         リアルタイムの情報をワンクリックで検索します。</p>
-        <!-- <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p> -->
+        <%= link_to "今すぐ始める", new_real_property_path, class: 'btn btn-secondary' %>
       </div><!-- /.col-lg-4 -->
       <div class="col-lg-4">
         <div class="rounded-circle">
