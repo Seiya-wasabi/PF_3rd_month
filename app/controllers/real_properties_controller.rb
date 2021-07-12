@@ -24,8 +24,11 @@ class RealPropertiesController < ApplicationController
       end until next_link.empty?
       rents = rents.map!{|s|s.sub('万円','')} # 配列内を数字だけに
       rents = rents.map!(&:to_f) # 配列の要素を変動小数型に変換
-      rent_average = rents.sum.fdiv(rents.length)
-      rent_db = RealProperty.new(rent: rent_average, url: url_params)
+      rent_average = rents.sum.fdiv(rents.length) #平均を算出して代入
+      rent_max = rents.max
+      rent_min = rents.min
+      rent_db = RealProperty.new(rent: rent_average, url: url_params, max_rent: rent_max, min_rent: rent_min)
+      # 平均・url・最大家賃・最低家賃をそれぞれカラムに紐づけて保存
       rent_db.save
       redirect_to real_properties_path
   end
