@@ -2,7 +2,6 @@
 	<thead>
 		<th>会員ID</th>
 		<th>名前</th>
-		<th>フリガナ</th>
 		<th>会員ステータス</th>
 		<th></th>
 	</thead>
@@ -10,8 +9,7 @@
 		<% customers.each do |customer| %>
 			<tr>
 				<td><%= customer.id %></td>
-				<td><%= customer.full_name %></td>
-				<td><%= customer.full_name_kana %></td>
+				<td><%= customer.name %></td>
 				<td>
 					<% if customer.is_active? %>
 						<span class="text-active">有効</span>	
@@ -19,7 +17,6 @@
 						<span class="text-invalid">退会済み</span>
 					<% end %>
 				</td>
-				<td><%= link_to "詳細", admin_customer_path(customer), class: "btn btn-primary" %></td>
 			</tr>
 		<% end %>
 	</tbody>
