@@ -29,8 +29,4 @@ Rails.application.routes.draw do
     resources :real_properties, only: [:new, :create, :index]
 
     resources :customers, only: [:index, :show]
-    
-    Rails.application.routes.draw do
-      resources :posts, param: :id
-    end
 end
