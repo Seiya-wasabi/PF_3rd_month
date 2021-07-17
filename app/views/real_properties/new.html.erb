@@ -15,5 +15,18 @@
           <%= f.submit '実行' %>
         <% end %>
       </div>
+    </div> <!-- /.row -->
+    <%= form_for(@area) do |f| %>
+    <div class="field"><!-- 都道府県 -->
+      <%= f.label :prefecture_id, "都道府県" %><br>
+      <%= f.collection_select :prefecture_id, Prefecture.all, :id, :name, :include_blank => true %>
+      <!-- デフォルトでid: "user_prefecture_id" がついてる -->
     </div>
+
+    <div class="field"><!-- 市町村 -->
+      <div id="city-area">
+        <%= render partial: 'areas/select_city', locals: {cities: @cities} %>
+      </div>
+    </div>
+    <% end %>
   </div>
