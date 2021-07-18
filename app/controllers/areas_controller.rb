@@ -16,3 +16,5 @@ class AreasController < ApplicationController
 #    render partial: 'select_city', locals: {prefecture_id: params[:prefecture_id]}
   end
 end
+
+
