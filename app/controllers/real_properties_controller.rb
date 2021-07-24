@@ -121,3 +121,7 @@ end #class全体
   #   end
   #   latest_id = row["feed_id"].to_i
   #   return latest_id
+  def create
+    @post = Post.new(content:params[:content])
+    @post.save
+  end
