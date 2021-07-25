@@ -125,3 +125,7 @@ end #class全体
     @post = Post.new(content:params[:content])
     @post.save
   end
+  
+  def show
+    @customer = Customer.find(params[:id])
+  end
