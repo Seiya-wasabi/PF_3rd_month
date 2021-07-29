@@ -27,6 +27,5 @@ Rails.application.routes.draw do
     end
 
     resources :real_properties, only: [:new, :create, :index]
-
     resources :customers, only: [:index, :show]
 end
