@@ -1,11 +1,6 @@
 class HomesController < ApplicationController
-  def new
-    @area = Area.new
-    @cities = City.where(prefecture_id:0)
+  def top
+    
   end
 
-  def create
-    @post = Post.new(content:params[:content])
-    @post.save
-  end
 end
