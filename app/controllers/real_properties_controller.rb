@@ -58,6 +58,13 @@ class RealPropertiesController < ApplicationController
 #    render partial: 'select_city', locals: {prefecture_id: params[:prefecture_id]}
   end
 
+  def new
+    @area = Area.new
+    @cities = City.where(prefecture_id:0)
+  end
+
+
+
     private
   # ストロングパラメータ
   def url_params
@@ -125,7 +132,7 @@ end #class全体
     @post = Post.new(content:params[:content])
     @post.save
   end
-  
+
   def show
     @customer = Customer.find(params[:id])
   end
