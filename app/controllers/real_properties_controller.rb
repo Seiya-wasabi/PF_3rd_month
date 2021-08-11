@@ -35,10 +35,7 @@ class RealPropertiesController < ApplicationController
       redirect_to real_properties_path
   end
 
-  def index
-    @rents = RealProperty.page(params[:page]).reverse_order
-    @all_ranks = Note.find(Like.group(:note_id).order('count(note_id) desc').limit(3).pluck(:note_id))
-  end
+
 
   # require 'open-uri' # URLアクセス
   # require 'kconv'    # 文字コード変換
