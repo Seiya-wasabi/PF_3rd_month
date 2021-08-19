@@ -19,3 +19,14 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+//= require jquery
+//= require jquery_ujs
+//= require clipboard
+
+$(document).ready(function(){  
+
+var clipboard = new Clipboard('.clipboard-btn');
+console.log(clipboard);
+
+});
