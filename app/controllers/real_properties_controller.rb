@@ -118,11 +118,24 @@ end #class全体
   #   end
   #   latest_id = row["feed_id"].to_i
   #   return latest_id
-  def create
-    @post = Post.new(content:params[:content])
-    @post.save
+
+  def confirm
+    # 入力値のチェック
+    @inquiry = Inquiry.new(params[:inquiry].permit(:name, :email, :message))
+    if @inquiry.valid?
+      # OK。確認画面を表示
+      render :action => 'confirm'
+    else
+      # NG。入力画面を再表示
+      render :action => 'index'
+    end
   end
-  
-  def show
-    @customer = Customer.find(params[:id])
+
+  def thanks
+    # メール送信
+    @inquiry = Inquiry.new(params[:inquiry].permit(:name, :email, :message))    
+    InquiryMailer.received_email(@inquiry).deliver
+
+    # 完了画面を表示
+    render :action => 'thanks'
   end
