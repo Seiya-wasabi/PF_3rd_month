@@ -128,8 +128,3 @@ end #class全体
   end
   
   
-  def create
-    @scrape = Area.new.scrape
-    @scrapes = @scrape.all
-    redirect_to get_cities_areas
-  end
