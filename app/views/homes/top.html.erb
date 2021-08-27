@@ -43,5 +43,30 @@
       </div><!-- /.col-lg-4 -->
     </div><!-- /.row -->
     </div><!-- /.container -->
+    <%= form_for(@area) do |f| %>
+    <div class="field"><!-- 都道府県 -->
+      <%= f.label :prefecture_id %><br>
+      <%= f.collection_select :prefecture_id, Prefecture.all, :id, :name, :include_blank => true %>
+      <!-- デフォルトでid: "user_prefecture_id" がついてる -->
+    </div>
+
+    <div class="field"><!-- 市町村 -->
+      <div id="city-area">
+        <%= render partial: 'select_city', locals: {cities: @cities} %>
+      </div>
+    </div>
+    <%#= f.submit '実行' %>
+<% end %>
+  <%= link_to "実行", new_real_property_path %>
+
+  <h1>ここにURLを入力してください</h1>
+<!-- form_with部分 -->
+<%= form_with model: @url, url:real_properties_path, local:true do |f| %>
+  <%= f.text_field :url %>
+  <%= f.submit '実行' %>
+<% end %>
+
+
+</script>
   </main>
 </body>
