@@ -7,10 +7,6 @@ class RealPropertiesController < ApplicationController
     @area = Area.new
     @cities = City.where(prefecture_id:0)
   end
-  
-  def index
-    @customers = Customer.page(params[:page])
-  end
 
   def create
     #binding.pry
