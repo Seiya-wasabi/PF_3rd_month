@@ -9,10 +9,6 @@ class RealPropertiesController < ApplicationController
   end
   
   
-  def get_cities
-    @cities = City.where(prefecture_id: params[:prefecture_id])
-#    render partial: 'select_city', locals: {prefecture_id: params[:prefecture_id]}
-  end
 
   def create
     #binding.pry
