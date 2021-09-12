@@ -124,6 +124,11 @@ end #class全体
     @post = Post.new(content:params[:content])
     @post.save
   end
+  def index
+    # 入力画面を表示
+    @inquiry = Inquiry.new
+    render :action => 'index'
+  end
   
   def show
     @customer = Customer.find(params[:id])

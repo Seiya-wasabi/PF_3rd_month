@@ -4,9 +4,7 @@ class InquiryController < ApplicationController
     @inquiry = Inquiry.new
     render :action => 'index'
   end
-  def show
-    @customer = Customer.find(params[:id])
-  end
+  
 
   def confirm
     # 入力値のチェック
