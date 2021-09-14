@@ -130,8 +130,5 @@ end #class全体
     render :action => 'index'
   end
   
-  def show
-    @customer = Customer.find(params[:id])
-  end
-  
+
   
