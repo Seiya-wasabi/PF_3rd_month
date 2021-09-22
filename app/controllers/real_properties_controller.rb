@@ -8,6 +8,22 @@ class RealPropertiesController < ApplicationController
     @cities = City.where(prefecture_id:0)
   end
   
+    def new
+    @area = Area.new
+    @cities = City.where(prefecture_id:0)
+  end
+  
+  def index
+    # 入力画面を表示
+    @inquiry = Inquiry.new
+    render :action => 'index'
+  end
+
+  def create
+    @scrape = Area.new.scrape
+    @scrapes = @scrape.all
+    redirect_to get_cities_areas
+  end
   
 
   def create
