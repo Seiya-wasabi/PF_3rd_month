@@ -7,15 +7,8 @@ class RealPropertiesController < ApplicationController
     @area = Area.new
     @cities = City.where(prefecture_id:0)
   end
-  
-    def thanks
-    # メール送信
-    @inquiry = Inquiry.new(params[:inquiry].permit(:name, :email, :message))    
-    InquiryMailer.received_email(@inquiry).deliver
 
-    # 完了画面を表示
-    render :action => 'thanks'
-  end
+
 
   def create
     #binding.pry
@@ -131,6 +124,5 @@ end #class全体
     @post = Post.new(content:params[:content])
     @post.save
   end
-  
 
-  
+
