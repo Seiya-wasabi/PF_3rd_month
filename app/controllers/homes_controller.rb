@@ -1,9 +1,9 @@
 class HomesController < ApplicationController
   def top
   end
-  
-    def new
-    @area = Area.new
-    @cities = City.where(prefecture_id:0)
+  def index
+    # 入力画面を表示
+    @inquiry = Inquiry.new
+    render :action => 'index'
   end
 end
